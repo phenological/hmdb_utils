@@ -87,7 +87,7 @@ urine_metabolites$synonyms <- lapply(urine_metabolites$synonyms, function(x) {fr
 #' range_query_and(ranges, nmrdb)
 #' }
 #' @export
-range_query_and <- function(ranges, nmrdb = hmdb_nmr_1h) {
+range_query_and <- function(ranges, nmrdb = hmdb.local::hmdb_nmr_1h) {
   result_ids <- NULL
   for (rng in ranges) {
     range_index <- which(nmrdb[["shift1.ppm."]] > rng[1] & nmrdb[["shift1.ppm."]] < rng[2])
@@ -118,7 +118,7 @@ range_query_and <- function(ranges, nmrdb = hmdb_nmr_1h) {
 #' multiple_query(query, nmrdb, metabolites)
 #' }
 #' @export
-multiplet_query <- function(query, nmrdb = hmdb_nmr_1h, metabolites = urine_metabolites) {
+multiplet_query <- function(query, nmrdb = hmdb.local::hmdb_nmr_1h, metabolites = hmdb.local::urine_metabolites) {
   res <- range_query_and(query, nmrdb)
   filtered_df <- metabolites %>% filter(accession %in% res)
   result <- data.frame(accession = character(), name = character(), similarity = numeric())

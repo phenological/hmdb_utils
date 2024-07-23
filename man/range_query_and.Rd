@@ -4,7 +4,7 @@
 \alias{range_query_and}
 \title{Range Query Function}
 \usage{
-range_query_and(ranges, nmrdb = hmdb_nmr_1h)
+range_query_and(ranges, nmrdb = hmdb.local::hmdb_nmr_1h)
 }
 \arguments{
 \item{ranges}{A list of ranges, where each range is a vector of the form \code{c(from, to)}.}
