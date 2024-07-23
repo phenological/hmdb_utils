@@ -5,20 +5,20 @@
 \title{Approximate Lookup Function}
 \usage{
 approximate_lookup(
-  df,
-  column,
   search_string,
+  column = "synonyms_cat",
+  df = urine_metabolites,
   scorer1 = "lv",
   scorer2 = "lcs",
   limit = 10
 )
 }
 \arguments{
-\item{df}{A data frame containing the data to search.}
+\item{search_string}{A string to search for in the specified column.}
 
 \item{column}{A string specifying the name of the column to search.}
 
-\item{search_string}{A string to search for in the specified column.}
+\item{df}{A data frame containing the data to search.}
 
 \item{scorer1}{A string specifying the method to use for the initial scoring (default is "lv" for Levenshtein distance).}
 

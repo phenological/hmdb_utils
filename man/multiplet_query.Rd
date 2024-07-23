@@ -4,7 +4,7 @@
 \alias{multiplet_query}
 \title{Multiplet Query Function}
 \usage{
-multiplet_query(query, nmrdb, metabolites)
+multiplet_query(query, nmrdb = hmdb_nmr_1h, metabolites = urine_metabolites)
 }
 \arguments{
 \item{query}{A list of queries, where each query is a vector of the form \code{c(from, to, type)}.}
