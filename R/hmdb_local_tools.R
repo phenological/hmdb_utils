@@ -3,6 +3,7 @@ library(stringdist)
 library(stringr)
 library(jsonlite)
 
+#' @importFrom utils read.csv
 read_data <- function(file_name) {
   file_path <- system.file(file_name, package = "hmdb.local")
   if (file_path == "") {
@@ -59,8 +60,13 @@ unescape_json <- function(string) {
   return(result)
 }
 
+#' hmdb_nmr_1h
+#' A dataframe containing the assignment of 1H NMR spectra related to metabolites
 #' @export
 hmdb_nmr_1h <- read_data("spectral1hnmr.csv")
+
+#' urine_metabolites
+#' A dataframe containing the chemical information of the HMDB metabolites
 #' @export
 urine_metabolites = read_data("metabolites.csv")
 
@@ -103,7 +109,7 @@ range_query_and <- function(ranges, nmrdb) {
 #' @param nmrdb A data frame containing the NMR data with columns \code{shift1.ppm.}, \code{accession}, and \code{type}.
 #' @param metabolites A data frame containing the metabolites data with columns \code{accession} and \code{name}.
 #' @return A data frame containing the matching metabolites, with columns for \code{accession}, \code{name}, and \code{similarity}, sorted by similarity in descending order.
-#' @importFrom dplyr filter arrange desc
+#' @importFrom dplyr filter arrange desc %>%
 #' @examples
 #' \dontrun{
 #' query <- list(c(1.0, 1.5, "type1"), c(2.0, 2.5, "type2"))
@@ -154,7 +160,8 @@ multiplet_query <- function(query, nmrdb, metabolites) {
 #' @param limit An integer specifying the maximum number of results to return (default is 10).
 #' @return A data frame containing the best matches, with columns for the original name, the best matching synonym, the index of the match, and the best score.
 #' @importFrom stringdist stringdist
-#' @importFrom dplyr filter arrange desc
+#' @importFrom dplyr filter arrange desc %>%
+#' @importFrom utils head
 #' @examples
 #' \dontrun{
 #' df <- data.frame(name = c("Name1", "Name2"), 

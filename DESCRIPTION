@@ -18,7 +18,8 @@ Imports:
     jsonlite (>= 1.5),
     stringdist,
     stringr,
-    dplyr
+    dplyr,
+    utils
 Suggests:
     testthat (>= 3.0.0)
 StagedInstall: no
