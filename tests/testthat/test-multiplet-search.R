@@ -9,4 +9,12 @@ test_that("Look for lactate", {
   expect_equal(abs(result$similarity[[1]] - expected$similarity[[1]]) < 1e-3, TRUE)
   expect_equal(abs(result$similarity[[2]] - expected$similarity[[2]]) < 1e-3, TRUE)
   expect_equal(abs(result$similarity[[3]] - expected$similarity[[3]]) < 1e-3, TRUE)
+  
+  result <- multiplet_query(query)
+  
+  expect_equal(result$accession, expected$accession)
+  expect_equal(result$name, expected$name)
+  expect_equal(abs(result$similarity[[1]] - expected$similarity[[1]]) < 1e-3, TRUE)
+  expect_equal(abs(result$similarity[[2]] - expected$similarity[[2]]) < 1e-3, TRUE)
+  expect_equal(abs(result$similarity[[3]] - expected$similarity[[3]]) < 1e-3, TRUE)
 })
