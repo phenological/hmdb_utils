@@ -59,8 +59,9 @@ unescape_json <- function(string) {
   return(result)
 }
 
-
+#' @export
 hmdb_nmr_1h <- read_data("spectral1hnmr.csv")
+#' @export
 urine_metabolites = read_data("metabolites.csv")
 
 urine_metabolites$synonyms <- lapply(urine_metabolites$synonyms, function(x) {fromJSON(unescape_json(x))})
