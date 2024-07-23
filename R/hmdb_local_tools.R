@@ -3,11 +3,14 @@ library(stringdist)
 library(stringr)
 library(jsonlite)
 
-hmdb_nmr_1h <- read.csv("R/spectral1hnmr.csv")
-urine_metabolites = read.csv("R/metabolites.csv")
-
-urine_metabolites$synonyms <- lapply(urine_metabolites$synonyms, function(x) {fromJSON(unescape_json(x))})
-
+read_data <- function(file_name) {
+  file_path <- system.file(file_name, package = "hmdb.local")
+  if (file_path == "") {
+    stop("Data file not found in package.")
+  }
+  data <- read.csv(file_path)
+  return(data)
+}
 
 # Function to remove single quotes within double-quoted strings
 unescape_json <- function(string) {
@@ -55,6 +58,12 @@ unescape_json <- function(string) {
   
   return(result)
 }
+
+
+hmdb_nmr_1h <- read_data("spectral1hnmr.csv")
+urine_metabolites = read_data("metabolites.csv")
+
+urine_metabolites$synonyms <- lapply(urine_metabolites$synonyms, function(x) {fromJSON(unescape_json(x))})
 
 #' Range Query Function
 #'
