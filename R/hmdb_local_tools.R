@@ -87,11 +87,11 @@ urine_metabolites$synonyms <- lapply(urine_metabolites$synonyms, function(x) {fr
 #' range_query_and(ranges, nmrdb)
 #' }
 #' @export
-range_query_and <- function(ranges, nmrdb) {
+range_query_and <- function(ranges, nmrdb = hmdb_nmr_1h) {
   result_ids <- NULL
   for (rng in ranges) {
     range_index <- which(nmrdb[["shift1.ppm."]] > rng[1] & nmrdb[["shift1.ppm."]] < rng[2])
-    res <- nmrdb[range_index, 'accession']
+    res <- nmrdb[range_index, "accession"]
     if (is.null(result_ids)) {
       result_ids <- res
     } else {
@@ -118,7 +118,7 @@ range_query_and <- function(ranges, nmrdb) {
 #' multiple_query(query, nmrdb, metabolites)
 #' }
 #' @export
-multiplet_query <- function(query, nmrdb, metabolites) {
+multiplet_query <- function(query, nmrdb = hmdb_nmr_1h, metabolites = urine_metabolites) {
   res <- range_query_and(query, nmrdb)
   filtered_df <- metabolites %>% filter(accession %in% res)
   result <- data.frame(accession = character(), name = character(), similarity = numeric())
@@ -133,7 +133,7 @@ multiplet_query <- function(query, nmrdb, metabolites) {
       mul_i <- query_i[3]
       for (j in 1:nrow(signals)) {
         signal <- signals[j, ]
-        if (signal[['shift1.ppm.']] >= from_i && signal[['shift1.ppm.']] <= to_i && signal[['type']] == mul_i) {
+        if (signal[["shift1.ppm."]] >= from_i && signal[["shift1.ppm."]] <= to_i && signal[["type"]] == mul_i) {
           matches <- matches + 1
           break
         }
@@ -171,10 +171,10 @@ multiplet_query <- function(query, nmrdb, metabolites) {
 #' approximate_lookup(df, "name", "name1")
 #' }
 #' @export
-approximate_lookup <- function(df, column, search_string, scorer1 = "lv", scorer2 = "lcs", limit = 10) {
+approximate_lookup <- function(search_string, column = "synonyms_cat", df = urine_metabolites, scorer1 = "lv", scorer2 = "lcs", limit = 10) {
   # Extract the column values as a list
   choices <- tolower(df[[column]])
-  names <- df[['name']]
+  names <- df[["name"]]
   search_string <- tolower(search_string)
   
   # Get the best matches using stringdist package
@@ -189,7 +189,7 @@ approximate_lookup <- function(df, column, search_string, scorer1 = "lv", scorer
     
     for (i in 1:nrow(matches)) {
       match_index <- matches$index[i]
-      matchings_names <- unlist(df[match_index, 'synonyms'])
+      matchings_names <- unlist(df[match_index, "synonyms"])
       
       best_name <- ""
       best_score <- 0

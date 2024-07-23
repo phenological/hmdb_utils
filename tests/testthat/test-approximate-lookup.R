@@ -1,5 +1,5 @@
 test_that("Look for lactate", {
-  matches = approximate_lookup(urine_metabolites, 'synonyms_cat', 'Lactate', "lv", "lcs", limit=3)
+  matches = approximate_lookup("Lactate", "synonyms_cat", urine_metabolites, "lv", "lcs", limit=3)
   expect_equal(dim(matches)[[1]], 3)
   
   expect_equal(matches$name[[1]], "L-Lactic acid")
@@ -18,8 +18,6 @@ test_that("Look for lactate", {
   expect_equal(matches$index[[3]], 263)
   expect_equal(abs(matches$best_score[[3]] - 0.7777778) < 1e-5, TRUE)
   
-  matches = approximate_lookup(urine_metabolites, 'synonyms_cat', 'Lactate', "lv", "lcs", limit=4)
-  
+  matches = approximate_lookup("Lactate", "synonyms_cat", urine_metabolites, "lv", "lcs", limit=4)
   expect_equal(dim(matches)[[1]], 4)
-  
 })
