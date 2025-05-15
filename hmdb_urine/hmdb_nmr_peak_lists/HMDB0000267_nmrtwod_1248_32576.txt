@@ -1,0 +1,11 @@
+Pyroglutamic acid (HMDB00267)
+2D HSQC spectrum
+25 mM at pH 7.0 298 K
+Referenced to DSS
+
+     F2ppm           F1ppm       Intensity       
+
+1     4.1625           60.9720      6768836.00
+2     2.4881           27.9837      1864552.00
+3     2.3847           32.2834      6950391.00
+4     2.0102           27.9837      2585502.00

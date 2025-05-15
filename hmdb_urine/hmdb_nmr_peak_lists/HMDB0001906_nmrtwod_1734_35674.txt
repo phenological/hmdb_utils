@@ -1,0 +1,3 @@
+		F2ppm	F1ppm	Intensity	Annotation
+
+	1	1.4780	26.2914	59712881.00

@@ -1,0 +1,15 @@
+ PEAKLIST_VERSION 1.1
+ PEAKLIST_DIMENSION 2
+ 2006-10-24T110427  nmrsu
+ DUopttopspin USERnmrsugranada.bio.ucalgary.ca NAMEMet_Tool_2D_DB EXPNO1639 PROCNO1
+ Manually picked peaks
+
+          F2     F1           F2ppm           F1ppm       Intensity       Annotation
+
+     
+     
+     1  1541.6   399.8            1.7446           35.3488     11623204.75
+     2  1575.5   400.1            1.5458           35.2256     11716395.00
+     3  1615.3   421.1            1.3125           28.2667     68853764.50
+     4  1701.1   475.6            0.8094           10.1612     13050532.75
+     

@@ -1,0 +1,10 @@
+Monoethyl malonic acid (HMDB00576) 
+2D HSQC spectrum
+10 mM at pH 7.0 298 K
+Referenced to DSS
+
+     F2ppm           F1ppm       Intensity       
+
+1     4.1796           64.7421      3822586.00
+2     3.2994           47.3497      7450203.00
+3     1.2578           15.9128       366778.00

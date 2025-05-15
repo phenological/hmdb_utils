@@ -1,0 +1,9 @@
+Hypotaurine (HMDB00965) 
+2D HSQC spectrum
+25 mM at pH 7.0 298 K
+Referenced to DSS
+
+     F2ppm           F1ppm       Intensity       
+
+1     2.6616           58.4539     16088117.50
+2     3.3456           36.2169     10887502.00

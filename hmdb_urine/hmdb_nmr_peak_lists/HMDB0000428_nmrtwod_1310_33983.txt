@@ -1,0 +1,10 @@
+Table of Peaks
+No. 	F2 (ppm) 	F1 (ppm) 	Intensity
+1 	2.38 	43.42 	0.65 	
+2 	4.27 	66.17 	0.00 	
+
+
+Table of Assignments
+No. 	F2 Atom 	F1 Atom 	F2 (ppm) 	F1 (ppm)
+1 	2 	2 	4.27 	66.17
+2 	6 	3 	2.38 	43.42

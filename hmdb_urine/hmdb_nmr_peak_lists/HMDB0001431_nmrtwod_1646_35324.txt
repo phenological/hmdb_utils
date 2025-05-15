@@ -1,0 +1,11 @@
+Pyridoxamine (HMDB01431) 
+2D HSQC Spectrum
+50 mM at pH 7.0 298 K
+Referenced to DSS
+
+     F2ppm           F1ppm       Intensity       
+
+1     7.6503          126.1751     20172440.00
+2     4.7165           61.7484     35032337.00
+3     4.3038           39.1844     32253783.00
+4     2.4842           17.7814      1601130.00

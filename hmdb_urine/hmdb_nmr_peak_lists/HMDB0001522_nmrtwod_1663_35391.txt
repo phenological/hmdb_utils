@@ -1,0 +1,8 @@
+Methylguanidine (HMDB01522) 
+2D HSQC spectrum
+50 mM at pH 7.0 298 K
+Referenced to DSS
+
+     F2ppm           F1ppm       Intensity       
+
+1     2.8129           30.0795     22860512.00
