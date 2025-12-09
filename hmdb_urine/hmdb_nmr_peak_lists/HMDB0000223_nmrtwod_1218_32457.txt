@@ -1,8 +1,0 @@
-Oxalacetic acid (HMDB00223) 
-2D HSQC spectrum
-50 mM at pH 7.0 298 K
-Referenced to DSS
-
-     F2ppm           F1ppm       Intensity       
-
-1     2.3694           29.2229     17964200.00
