@@ -4,5 +4,7 @@
 .Ruserdata
 .DS_store
 **/.DS_Store
+.ipynb_checkpoints
+__pycache__
 hmdb/*
 
