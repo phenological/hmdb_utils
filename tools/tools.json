@@ -1,0 +1,76 @@
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "search_metabolite",
+            "description": "Fuzzy search for metabolites by name or synonym.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "q":     {"type": "string",  "description": "Name or synonym to search for"},
+                    "limit": {"type": "integer", "description": "Max results", "default": 10}
+                },
+                "required": ["q"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "get_metabolite",
+            "description": "Full details for a metabolite by HMDB accession.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "accession": {"type": "string", "description": "HMDB accession e.g. HMDB0001925"}
+                },
+                "required": ["accession"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "get_nmr_signals",
+            "description": "All 1H-NMR signals recorded for a metabolite.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "accession": {"type": "string", "description": "HMDB accession"}
+                },
+                "required": ["accession"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "query_nmr",
+            "description": 
+                "Find metabolites matching 1H-NMR signal constraints (AND logic), ranked by similarity. Use when the user describes peaks, shifts, or multiplicities. IMPORTANT: if you include `ppm` for a signal, you MUST also include `heights` — they are always required together. If the user did not provide intensities, infer them from the multiplicity pattern: doublet→[1,1], triplet→[1,2,1], quartet→[1,3,3,1], singlet→[1], multiplet or unknown→equal weights for each peak in ppm. If no range is given, use centre ±0.05 ppm."
+            ,
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "signals": {
+                        "type": "array",
+                        "description": "List of signal constraints, all must match.",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "range":   {"type": "array",  "items": {"type": "number"}, "minItems": 2, "maxItems": 2,
+                                            "description": "[from_ppm, to_ppm]"},
+                                "mult":    {"type": "string", "description": "s/d/t/q/m/dd or * for wildcard"},
+                                "ppm":     {"type": "array",  "items": {"type": "number"}, "description": "Peak positions (optional)"},
+                                "heights": {"type": "array",  "items": {"type": "number"}, "description": "Relative intensities (optional, auto-normalised)"}
+                            },
+                            "required": ["range", "mult"]
+                        }
+                    },
+                    "limit": {"type": "integer", "description": "Max results", "default": 10}
+                },
+                "required": ["signals"]
+            }
+        }
+    }
+]
